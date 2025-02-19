@@ -1,0 +1,13 @@
+{
+    "short_name": "securing.guide",
+    "name": "Securing Guide, Account Security",
+    "icons": [
+        {
+            "src": "https://securing.guide/favicon.ico",
+            "sizes": "27x32",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone"
+}
