@@ -29,9 +29,17 @@ window.steps = [
     },
     {
         "points": [
-            "Download/save purchase history [here](https://store.steampowered.com/account/history)",
+            "Search for a \"Retail\" acquisition [here](https://store.steampowered.com/account/licenses)",
+            "If found, ask for the product key",
+            "Otherwise, redeem your own product key"
+        ]
+    },
+    {
+        "points": [
             "Download/save license history [here](https://store.steampowered.com/account/licenses)",
+            "Download/save purchase history [here](https://store.steampowered.com/account/history)",
             "Find/save your SteamID64 [here](https://securing.guide/steam-id)"
+            
         ]
     }
 ]
