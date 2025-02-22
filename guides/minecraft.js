@@ -59,7 +59,7 @@ window.steps = [
         "points": [
             "Change the name [here](https://account.microsoft.com/profile/edit-name)",
             "Change the DOB and location [here](https://account.live.com/editprof.aspx)",
-            "Make sure you're not in a [Microsoft Family](https://account.microsoft.com/family)"
+            "Remove yourself from [Microsoft Family](https://account.microsoft.com/family)"
         ]
     },
     {
