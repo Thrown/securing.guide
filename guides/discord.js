@@ -44,8 +44,8 @@ window.steps = [
     {
         "points": [
             "Go to User Settings > Devices",
-            "Remove any existing sessions",
-            "Click on 'Log out all known devices'"
+            "Click on 'Log out all known devices'",
+            "Wait 48h for dispute links to expire"
         ]
     }
 ]
