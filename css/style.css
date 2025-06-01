@@ -51,7 +51,7 @@ body {
 
 .info {
     display: -webkit-inline-box;
-    background-color: transparent;
+    background-color: #121212;
     border: 1px solid rgba(255, 255, 255, .5);
     padding: 14px;
     border-radius: .8rem;
@@ -96,7 +96,7 @@ body {
 }
 
 .options {
-    background-color: transparent;
+    background-color: #121212;
     border: 1px solid rgba(255, 255, 255, .5);
     padding: 14px;
     border-radius: .8rem;
@@ -119,8 +119,9 @@ p,
     font-weight: 500;
 }
 
-a:hover {
-    opacity: .6;
+a:hover div {
+    border-color: rgba(255, 255, 255, .75)!important;
+    transform: scale(1.1);
 }
 
 h1 {
@@ -159,6 +160,10 @@ a.github {
     right: 0;
     top: 0;
     margin: 2rem;
+}
+
+a.github:hover img {
+    opacity: 1;
 }
 
 .github img {
@@ -220,6 +225,7 @@ a[disabled] {
 }
 
 .pages a>div {
+    background-color: #121212;
     border: 1px solid rgba(255, 255, 255, .5);
     border-radius: .5rem;
     width: 52px;
@@ -290,7 +296,7 @@ a[disabled] {
 }
 
 input {
-    background-color: transparent;
+    background-color: #121212;
     border: 1px solid rgba(255, 255, 255, .5);
     padding: 12px;
     border-radius: .8rem;
