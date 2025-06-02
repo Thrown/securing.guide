@@ -330,8 +330,8 @@ layflags-rolling-number {
     margin-top: .5rem;
     cursor: pointer;
     line-height: 1.25em;
-    --roll-duration: 1.5s;
-    transition-duration: 1.5s;
+    --roll-duration: 0.8s;
+    transition-duration: 0.8s;
 }
 
 p {
