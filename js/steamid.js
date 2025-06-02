@@ -16,6 +16,7 @@ async function updateSteamID() {
                     if (!steamData.error) {
                         document.getElementById('steamid').setAttribute("style", "")
                         document.getElementById('steamid').style.opacity = '1';
+                        document.getElementById('steamid').style.cursor = 'pointer';
 
                         steamId = steamData.id;
                         document.getElementById('steamid').value = steamId;
@@ -85,6 +86,7 @@ function fallbackCopyTextToClipboard(text) {
 }
 
 function copyTextToClipboard(text) {
+    if (text == none) return;
     if (!navigator.clipboard) {
         fallbackCopyTextToClipboard(text);
         return;
@@ -104,6 +106,7 @@ tippy('#steamid', {
     theme: 'translucent',
     offset: [0, -10],
     onShow(instance) {
+        if (steamId == none) return false;
         setTimeout(() => {
             instance.hide();
         }, 500);
