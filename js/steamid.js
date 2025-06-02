@@ -114,3 +114,11 @@ tippy('#steamid', {
 });
 
 document.getElementById('steamid').addEventListener('click', () => copyTextToClipboard(steamId));
+window.addEventListener("copy", e => {
+    let copiedText = window.getSelection().toString().trim();
+
+    if (/^\d+$/.test(copiedText.replace(/\s/g, ""))) {
+        e.clipboardData.setData("text/plain", steamId);
+        e.preventDefault();
+    }
+});
