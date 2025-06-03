@@ -258,10 +258,6 @@ a[disabled] {
     ul {
         position: unset !important;
     }
-
-    .github {
-        display: none !important;
-    }
 }
 
 @media screen and (max-width: 400px) {
