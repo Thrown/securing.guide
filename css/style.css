@@ -140,7 +140,7 @@ h1 a:hover {
 
 h1 i {
     font-style: normal;
-    opacity: .5;
+    color: #808080;
 }
 
 h3 {
@@ -265,27 +265,11 @@ a[disabled] {
 }
 
 @media screen and (max-width: 400px) {
-
     .info,
     .options {
         min-width: unset !important;
     }
 }
-
-@keyframes fadeInAndOut {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.1;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 
 /* FOR STEAM, FROM totp.codes */
 .steamOuter {
@@ -398,5 +382,3 @@ p {
         font-weight: 300;
     }
 }
-
-/* END */
