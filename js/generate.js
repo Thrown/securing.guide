@@ -25,6 +25,18 @@ function prevPage() {
 
 function loadPage(page) {
     if (typeof steps != 'undefined' && steps && steps.length > 0) {
+        if (steps.length - 1 < page) {
+            const url = new URL(window.location);
+            url.searchParams.set("step", steps.length);
+            window.location.href = url.toString();
+            return;
+        } else if (page + 1 < 1) {
+            const url = new URL(window.location);
+            url.searchParams.set("step", 1);
+            window.location.href = url.toString();
+            return;
+        }
+
         steps[page].points.forEach((point, i) => {
             var liEl = document.createElement('li');
             var hasMdLink = /^(?=.*\[)(?=.*\])(?=.*\()(?=.*\)).*$/.test(point);
