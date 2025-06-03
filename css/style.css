@@ -362,6 +362,20 @@ p {
     fill: #262626
 }
 
+@keyframes fadeInAndOut {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @-moz-document url-prefix() {
     input {
         padding: 13px;
