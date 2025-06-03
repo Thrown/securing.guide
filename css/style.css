@@ -52,7 +52,7 @@ body {
 .info {
     display: -webkit-inline-box;
     background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, .5);
+    border: 1px solid #808080;
     padding: 14px;
     border-radius: .8rem;
     font-family: 'Inconsolata';
@@ -97,7 +97,7 @@ body {
 
 .options {
     background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, .5);
+    border: 1px solid #808080;
     padding: 14px;
     border-radius: .8rem;
     font-family: 'Inconsolata';
@@ -115,12 +115,12 @@ body {
 p,
 .paginate a {
     font-size: 18px;
-    color: rgba(255, 255, 255, .5);
+    color: #808080;
     font-weight: 500;
 }
 
 a:hover div {
-    border-color: rgba(255, 255, 255, .75)!important;
+    border-color: #C0C0C0!important;
     transform: scale(1.1);
 }
 
@@ -145,7 +145,7 @@ h1 i {
 
 h3 {
     font-weight: 400;
-    color: rgba(255, 255, 255, .5);
+    color: #808080;
     margin-bottom: 1rem;
 }
 
@@ -211,7 +211,7 @@ ul>li:before {
 a[disabled] {
     pointer-events: none;
     cursor: default;
-    color: rgba(255, 255, 255, .25);
+    color: #404040;
 }
 
 .pages {
@@ -226,14 +226,14 @@ a[disabled] {
 
 .pages a>div {
     background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, .5);
+    border: 1px solid #808080;
     border-radius: .5rem;
     width: 52px;
     height: 52px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgba(255, 255, 255, .5);
+    color: #808080;
 }
 
 @media screen and (max-width: 600px) {
@@ -297,7 +297,7 @@ a[disabled] {
 
 input {
     background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, .5);
+    border: 1px solid #808080;
     padding: 12px;
     border-radius: .8rem;
     text-align: center;
@@ -314,7 +314,7 @@ input {
 
 input:focus {
     outline: none !important;
-    border-color: rgba(255, 255, 255, .75);
+    border-color: #C0C0C0;
     box-shadow: none;
 }
 
@@ -335,7 +335,7 @@ layflags-rolling-number {
 
 p {
     font-size: 18px;
-    color: rgba(255, 255, 255, .5);
+    color: #808080;
     font-weight: 500;
 }
 
