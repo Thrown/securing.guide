@@ -187,12 +187,12 @@ ul {
 }
 
 ul>li {
-    text-indent: -5px;
+    text-indent: -3px;
 }
 
 ul>li:before {
     content: "— ";
-    text-indent: -5px;
+    text-indent: -3px;
 }
 
 .paginate {
