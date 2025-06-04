@@ -17,7 +17,7 @@ window.steps = [
         "points": [
             "Change the password",
             "Make sure your password is secure",
-            "Click [here](https://bitwarden.com/password-generator) to generate a password"
+            "Click [here](https://password.click) to generate a password"
         ]
     },
     {
