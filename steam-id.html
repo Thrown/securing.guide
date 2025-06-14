@@ -26,13 +26,11 @@
     <meta property="twitter:image" content="https://securing.guide/icons/steam.png">
 
     <link rel="preload" as="image" href="https://securing.guide/icons/github.png">
-    <link rel="preload stylesheet" href="https://securing.guide/css/style.css" as="style">
+    <link rel="preload stylesheet" href="https://securing.guide/css/style.css" as="style" crossorigin="anonymous">
     <link rel="preconnect" href="https://totp.codes">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=block" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/animations/shift-away.css">
+    <link rel="preload stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/animations/shift-away.css" as="style" crossorigin="anonymous">
     <link rel="manifest" href="https://securing.guide/manifest.json">
 
     <link rel="icon" href="https://securing.guide/favicon.ico">
@@ -41,7 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.umd.min.js" crossorigin="anonymous"></script>
     <script type="module" crossorigin="anonymous" src="https://totp.codes/js/rolling-number.js"></script>
-    <script src="https://securing.guide/js/steamid.js" defer></script>
+    <script src="https://securing.guide/js/steamid.js" crossorigin="anonymous" type="module"></script>
     <script>window.addEventListener("load",()=>document.body.classList.remove("preload"))</script>
 </head>
 <body class="preload">
