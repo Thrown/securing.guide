@@ -57,10 +57,11 @@
         <div class="options">
             <ul id="list">
                 <li>Look for a 16/32 digit code (secret key)</li>
-                <li>Paste the secret key into <a href="https://totp.codes/" target="_blank">totp.codes  </a></li>
+                <li>Paste the secret key into <a href="https://totp.codes/" target="_blank">totp.codes</a></li>
                 <li>Keep your secret key in a safe place</li>
             </ul>
         </div>
     </div>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));</script>
 </body>
 </html>
