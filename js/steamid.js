@@ -1,101 +1,78 @@
-var none = "00000000000000000";
-var steamId = none;
-var check = 0;
+const none = "00000000000000000";
+const steamIdEl = document.getElementById('steamid');
+const vanityEl = document.getElementById('vanity');
+let steamId = none;
+let check = 0;
 
 async function updateSteamID() {
     try {
-        var prev = check;
-        try {
-            clearInterval(window.wow)
-        } catch { }
+        const prev = check;
+        clearTimeout(window.wow);
+
         window.wow = setTimeout(async () => {
-            if (prev == check) {
-                const steamAPI = await fetch("https://cors.faav.top/steam/" + encodeURIComponent(document.getElementById('vanity').value))
-                if (steamAPI.status == 200) {
-                    const steamData = await steamAPI.json();
-                    if (!steamData.error) {
-                        document.getElementById('steamid').setAttribute("style", "")
-                        document.getElementById('steamid').style.opacity = '1';
-                        document.getElementById('steamid').style.cursor = 'pointer';
+            if (prev !== check) return;
 
-                        steamId = steamData.id;
-                        document.getElementById('steamid').value = steamId;
-                    } else {
-                        document.getElementById('steamid').setAttribute("style", "");
-                        document.getElementById('steamid').style.opacity = '.15';
-
-                        steamId = none;
-                        document.getElementById('steamid').value = steamId;
-                    }
-                }
+            const response = await fetch(`https://cors.faav.top/steam/${encodeURIComponent(vanityEl.value)}`);
+            if (response.ok) {
+                const steamData = await response.json();
+                setSteamID(steamData?.id || none, !steamData.error);
             }
-        }, 275)
+        }, 275);
     } catch {
-        document.getElementById('steamid').setAttribute("style", "");
-        document.getElementById('steamid').style.opacity = '.15';
-
-        steamId = none;
-        document.getElementById('steamid').value = steamId;
+        setSteamID(none, false);
     }
 }
 
-const detectSteam = (path) => {
-    var splitArr = document.getElementById('vanity').value.split(path);
-    var detectedSteam = splitArr[splitArr.length-1].split('/')[0];
-    document.getElementById('vanity').value = detectedSteam;
+function setSteamID(id, isValid) {
+    steamId = id;
+    steamIdEl.value = steamId;
+    steamIdEl.style.opacity = isValid ? '1' : '.15';
+    steamIdEl.style.cursor = isValid ? 'pointer' : '';
 }
 
-document.getElementById('vanity').addEventListener('input', async function () {
-    if (document.getElementById('vanity').value.includes('profiles/')) detectSteam('profiles/')
-    else if (document.getElementById('vanity').value.includes('id/')) detectSteam('id/');
+function detectSteam(path) {
+    const detectedSteam = vanityEl.value.split(path).pop().split('/')[0];
+    vanityEl.value = detectedSteam;
+}
 
-    document.getElementById('vanity').value = document.getElementById('vanity').value.replace(/ /g, '');
-    check++
-    if (document.getElementById('vanity').value.length == 0) {
-        document.getElementById('steamid').setAttribute("style", "");
-        document.getElementById('steamid').style.opacity = '.15';
+vanityEl.addEventListener('input', async () => {
+    if (vanityEl.value.includes('profiles/')) detectSteam('profiles/');
+    else if (vanityEl.value.includes('id/')) detectSteam('id/');
 
-        steamId = none;
-        document.getElementById('steamid').value = steamId;
-    } else {
-        await updateSteamID();
+    vanityEl.value = vanityEl.value.replace(/\s/g, '');
+    check++;
+
+    vanityEl.value.length ? await updateSteamID() : setSteamID(none, false);
+});
+
+async function copyTextToClipboard(text) {
+    if (text === none) return;
+    try {
+        await navigator.clipboard.writeText(text);
+        console.log('Copied!');
+    } catch {
+        fallbackCopyTextToClipboard(text);
     }
-})
+}
 
 function fallbackCopyTextToClipboard(text) {
-    var textArea = document.createElement("textarea");
+    const textArea = document.createElement("textarea");
     textArea.value = text;
 
-    textArea.style.top = "0";
-    textArea.style.left = "0";
-    textArea.style.position = "fixed";
+    Object.assign(textArea.style, { top: "0", left: "0", position: "fixed" });
 
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
 
     try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Fallback: Copying text command was ' + msg);
+        document.execCommand('copy');
+        console.log('Fallback: Copying text command was successful');
     } catch (err) {
-        console.error('Fallback: Oops, unable to copy', err);
+        console.error('Fallback: Unable to copy', err);
     }
 
     document.body.removeChild(textArea);
-}
-
-function copyTextToClipboard(text) {
-    if (text == none) return;
-    if (!navigator.clipboard) {
-        fallbackCopyTextToClipboard(text);
-        return;
-    }
-    navigator.clipboard.writeText(text).then(function () {
-        console.log('Async: Copying to clipboard was successful!');
-    }, function (err) {
-        console.error('Async: Could not copy text: ', err);
-    });
 }
 
 tippy('#steamid', {
@@ -106,17 +83,15 @@ tippy('#steamid', {
     theme: 'translucent',
     offset: [0, -10],
     onShow(instance) {
-        if (steamId == none) return false;
-        setTimeout(() => {
-            instance.hide();
-        }, 500);
+        if (steamId === none) return false;
+        setTimeout(() => instance.hide(), 500);
     }
 });
 
-document.getElementById('steamid').addEventListener('click', () => copyTextToClipboard(steamId));
-window.addEventListener("copy", e => {
-    let copiedText = window.getSelection().toString().trim();
+steamIdEl.addEventListener('click', () => copyTextToClipboard(steamId));
 
+window.addEventListener("copy", (e) => {
+    const copiedText = window.getSelection().toString().trim();
     if (/^\d+$/.test(copiedText.replace(/\s/g, ""))) {
         e.clipboardData.setData("text/plain", steamId);
         e.preventDefault();
