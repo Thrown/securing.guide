@@ -37,7 +37,7 @@ function loadPage(page) {
 
             var elements = point.match(/\[.*?\)/g);
             if (elements && elements.length > 0) {
-                for (el of elements) {
+                for (const el of elements) {
                     let text = el.match(/\[(.*?)\]/)[1];
                     let url = el.match(/\((.*?)\)/)[1];
                     let aTag = document.createElement("a");
