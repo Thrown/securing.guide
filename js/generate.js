@@ -7,11 +7,11 @@ const stepDisplay = document.getElementById("stepDisplay");
 const prevEl = document.getElementById("prevEl");
 const nextEl = document.getElementById("nextEl");
 
-function nextPage() {
+window.nextPage = () => {
     if (currentPage < steps.length - 1) loadPage(++currentPage);
 }
 
-function prevPage() {
+window.prevPage = () => {
     if (currentPage > 0) loadPage(--currentPage);
 }
 
